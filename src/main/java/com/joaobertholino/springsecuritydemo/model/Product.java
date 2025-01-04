@@ -30,6 +30,6 @@ public class Product {
 
 	@NotNull(message = "The price of the product cannot be zero.")
 	@DecimalMin(message = "The price of the product cannot be negative or equals to zero.", value = "0.00", inclusive = false)
-	@Column(name = "product_price", precision = 2, scale = 10)
+	@Column(name = "product_price", precision = 10, scale = 2)
 	private BigDecimal price;
 }

@@ -15,6 +15,8 @@ spring:
     user:
       name: user
       password: 12345
+    jwt:
+      secret: ${JWT_SECRET:my-secret-key}
   docker:
     compose:
       enabled: false
