@@ -1,1 +1,11 @@
 services:
+  spring-security-demo:
+    container_name: spring-security-demo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: jdbc:h2:file:./database
+      DATABASE_USER: sa
+    ports:
+      - "8080:8080"
