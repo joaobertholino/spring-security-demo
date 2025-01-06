@@ -28,7 +28,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 			String subject = this.jwtService.validateToken(token);
 			UserDetails userDetails = this.userAuthRepository.findByUsername(subject);
 
-			UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getAuthorities());
+			UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 		}
 		filterChain.doFilter(request, response);
@@ -37,6 +37,6 @@ public class SecurityFilter extends OncePerRequestFilter {
 	private String recoverToken(HttpServletRequest request) {
 		String authHeader = request.getHeader("Authorization");
 		if (authHeader == null) return null;
-		return authHeader.replace("Bearer ", new StringBuilder());
+		return authHeader.replace("Bearer ", "");
 	}
 }

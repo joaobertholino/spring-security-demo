@@ -1,13 +1,13 @@
 package com.joaobertholino.springsecuritydemo.enums;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 public enum UserRole {
-	ADMIN("Admin"),
-	USER("User");
+	ADMIN("ADMIN"),
+	USER("USER");
 
 	private final String role;
 }

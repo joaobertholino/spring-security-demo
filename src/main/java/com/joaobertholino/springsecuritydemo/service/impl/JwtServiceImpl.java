@@ -22,12 +22,18 @@ public class JwtServiceImpl implements JwtService {
 	@Override
 	public String generatedToken(UserAuth userAuth) {
 		Algorithm algorithm = Algorithm.HMAC256(this.secret);
-		return JWT.create().withIssuer(this.issuer).withSubject(userAuth.getUsername()).withExpiresAt(this.getInstant()).sign(algorithm);
+		return JWT
+				.create()
+				.withIssuer(this.issuer)
+				.withSubject(userAuth.getUsername())
+				.withExpiresAt(this.getInstant())
+				.sign(algorithm);
 	}
 
 	@Override
 	public String validateToken(String token) {
-		return JWT.require(Algorithm.HMAC256(this.secret))
+		return JWT
+				.require(Algorithm.HMAC256(this.secret))
 				.withIssuer(this.issuer)
 				.build()
 				.verify(token)
@@ -35,6 +41,9 @@ public class JwtServiceImpl implements JwtService {
 	}
 
 	private Instant getInstant() {
-		return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+		return LocalDateTime
+				.now()
+				.plusHours(2)
+				.toInstant(ZoneOffset.of("-03:00"));
 	}
 }

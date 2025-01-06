@@ -3,7 +3,7 @@ package com.joaobertholino.springsecuritydemo.controller;
 import com.joaobertholino.springsecuritydemo.mapper.dto.AuthenticateDto;
 import com.joaobertholino.springsecuritydemo.mapper.dto.TokenDto;
 import com.joaobertholino.springsecuritydemo.service.AuthenticateService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/auth")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AuthenticateController {
 	private final AuthenticateService authenticateService;
 
