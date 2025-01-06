@@ -29,7 +29,7 @@ public class SecurityConfig {
 				.formLogin(AbstractHttpConfigurer::disable)
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(authorize -> authorize
-						.requestMatchers(HttpMethod.POST, "auth/user", "register/user").permitAll()
+						.requestMatchers(HttpMethod.POST, "auth/user").permitAll()
 						.requestMatchers(HttpMethod.POST).hasRole(UserRole.ADMIN.getRole())
 						.requestMatchers(HttpMethod.GET).authenticated())
 				.addFilterBefore(this.securityFilter, UsernamePasswordAuthenticationFilter.class);

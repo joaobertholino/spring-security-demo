@@ -16,12 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class RegisterController {
 	private final RegisterService registerService;
 
-	@PostMapping(value = "/user/admin", consumes = "application/json")
-	public ResponseEntity<Void> registerNewUserAdmin(@RequestBody RegisterDto registerDto) {
-		this.registerService.register(registerDto);
-		return ResponseEntity.status(HttpStatus.CREATED).build();
-	}
-
 	@PostMapping(value = "/user", consumes = "application/json")
 	public ResponseEntity<Void> registerNewUserNonAdmin(@RequestBody RegisterDto registerDto) {
 		this.registerService.register(registerDto);
