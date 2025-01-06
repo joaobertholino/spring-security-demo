@@ -2,21 +2,13 @@ spring:
   application:
     name: spring-security-demo
   datasource:
-    driver-class-name: org.h2.Driver
+    driver-class-name: org.postgresql.Driver
     url: ${DATABASE_URL}
     username: ${DATABASE_USER}
-    password:
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
+    password: ${DATABASE_PASSWORD}
   security:
     user:
       name: user
       password: 12345
     jwt:
       secret: ${JWT_SECRET:my-secret-key}
-  docker:
-    compose:
-      enabled: false

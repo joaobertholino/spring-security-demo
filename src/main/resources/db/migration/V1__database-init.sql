@@ -16,3 +16,11 @@ CREATE TABLE tb_user_auth
 
 ALTER TABLE tb_product
 	ADD CONSTRAINT uc_tb_product_product_name UNIQUE (product_name);
+
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
+INSERT INTO tb_user_auth (username, password, role)
+VALUES ('JoaoB', '$2a$10$RvGSnHNlBjJqvNaxpDN5mO5dCOKVZL./WE87tmsoswfCZp0J8PJI6', 0);
+
+INSERT INTO tb_product (id, product_name, product_price)
+VALUES (gen_random_uuid(), 'Redragon Lakshmi', 99.99);
