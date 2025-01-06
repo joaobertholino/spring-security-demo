@@ -1,7 +1,6 @@
 package com.joaobertholino.springsecuritydemo.controller;
 
 import com.joaobertholino.springsecuritydemo.mapper.dto.RegisterDto;
-import com.joaobertholino.springsecuritydemo.service.JwtService;
 import com.joaobertholino.springsecuritydemo.service.RegisterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,10 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class RegisterController {
 	private final RegisterService registerService;
-	private final JwtService jwtService;
+
+	@PostMapping(value = "/user/admin", consumes = "application/json")
+	public ResponseEntity<Void> registerNewUserAdmin(@RequestBody RegisterDto registerDto) {
+		this.registerService.register(registerDto);
+		return ResponseEntity.status(HttpStatus.CREATED).build();
+	}
 
 	@PostMapping(value = "/user", consumes = "application/json")
-	public ResponseEntity<Void> registerNewUser(@RequestBody RegisterDto registerDto) {
+	public ResponseEntity<Void> registerNewUserNonAdmin(@RequestBody RegisterDto registerDto) {
 		this.registerService.register(registerDto);
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
