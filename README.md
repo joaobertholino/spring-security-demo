@@ -1,6 +1,6 @@
 # Spring Security Demo
 
-Este projeto é uma aplicação de demonstração que integra o Spring Security para fornecer autenticação e autorização em uma API REST Spring Boot.
+Este projeto é uma aplicação de demonstração que integra o Spring Security com tokens JWT para fornecer autenticação e autorização em uma API REST Spring Boot.
 
 ## Funcionalidades
 
@@ -8,7 +8,7 @@ Este projeto é uma aplicação de demonstração que integra o Spring Security 
 - **Autenticação de Usuários**: Permite que os usuários já registrados façam login com credenciais válidas.
 - **Autorização baseada em permições**: Restringe o acesso a determinadas partes da aplicação com base nas permições dos usuários.
 - **Registro de um novo Produto**: Permite o registro de um novo produto, sendo realizado apenas por usuarios com permição de ADMIN.
-	-- **Recupera um protodo da base de dados**: Permite que usuarios com quaisquer permições recuperem um produto especifico da base de dados.
+- **Recupera um protodo da base de dados**: Permite que usuarios com quaisquer permições recuperem um produto especifico da base de dados.
 
 ## Tecnologias Utilizadas
 
@@ -44,5 +44,5 @@ Este projeto é uma aplicação de demonstração que integra o Spring Security 
 	 ```cURL
 	 curl --silent --location 'http://localhost:8080/auth/user' --header 'Content-Type: application/json' --data '{"username": "JoaoB", "password": "12345"}'
  	```
- 
+
 - Ao realizar a etapa de login, sera retornado no corpo da resposta, o token necessario para realizar as proximas requisições.
