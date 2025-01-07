@@ -14,7 +14,8 @@ Este projeto é uma aplicação de demonstração que integra o Spring Security 
 
 - **Java 21**: Linguagem de programação principal.
 - **Spring Boot 3.4.1**: Framework para criação de aplicações Java.
-- **Spring Security 6.4.2**: Módulo de segurança para autenticação e autorização.
+- **Spring Security 6.4.2**: Módulo de segurança para autenticação e autorização de usuários.
+- **JWT - JSON Web Token**: Utilizado para autenticação de usuários por meio de um token criptografado, utilizado posteriormente em novas requisições do mesmo usuário.
 - **Maven 3.9.9**: Gerenciador de dependências e build.
 - **Docker e Docker Compose**: Para containerização da aplicação e automatização dos containers.
 
