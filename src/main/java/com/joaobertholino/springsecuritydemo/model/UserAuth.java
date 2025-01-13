@@ -24,6 +24,7 @@ import java.util.List;
 public class UserAuth implements UserDetails {
 
 	@Id
+	@NotBlank(message = "The authenticated user name cannot be null and void.")
 	private String username;
 
 	@NotBlank(message = "The authenticated user's password cannot be null or empty.")
@@ -37,9 +38,11 @@ public class UserAuth implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		if (this.role == UserRole.ADMIN)
+		if (this.role == UserRole.ADMIN) {
 			return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
-		else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+		} else {
+			return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+		}
 	}
 
 	@Override

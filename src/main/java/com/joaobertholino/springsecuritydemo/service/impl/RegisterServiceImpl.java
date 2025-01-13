@@ -16,7 +16,7 @@ public class RegisterServiceImpl implements RegisterService {
 
 	@Override
 	public void register(RegisterDto registerDto) {
-		if (this.userAuthRepository.findByUsername(registerDto.username()) != null) throw new RuntimeException();
+		if (this.userAuthRepository.findUserAuthByUsername(registerDto.username()) != null) throw new RuntimeException();
 
 		String passwordEncrypted = this.passwordEncoder.encode(registerDto.password());
 		UserAuth userAuthToSave = new UserAuth(registerDto.username(), passwordEncrypted, registerDto.role());
