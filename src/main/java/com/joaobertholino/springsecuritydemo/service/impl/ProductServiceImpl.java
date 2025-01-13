@@ -16,7 +16,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public ProductDto findByName(String name) {
-		Product product = this.productRepository.findByName(name).orElseThrow(() -> new RuntimeException("Product not found in the database."));
+		Product product = this.productRepository.findProductByName(name).orElseThrow(() -> new RuntimeException("Product not found in the database."));
 		return this.productMapper.entityToResponse(product);
 	}
 

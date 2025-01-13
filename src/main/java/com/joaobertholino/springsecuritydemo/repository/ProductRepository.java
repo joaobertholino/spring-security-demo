@@ -10,5 +10,5 @@ import java.util.UUID;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, UUID> {
-	Optional<Product> findByName(@NotBlank(message = "The product name cannot be null or empty.") String name);
+	Optional<Product> findProductByName(@NotBlank(message = "The product name cannot be null or empty.") String name);
 }

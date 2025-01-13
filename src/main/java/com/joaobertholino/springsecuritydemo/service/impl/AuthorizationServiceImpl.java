@@ -13,7 +13,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 	private final UserAuthRepository userAuthRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return this.userAuthRepository.findByUsername(username);
+	public UserDetails loadUserByUsername(String username) {
+		return this.userAuthRepository.findUserAuthByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Username not found in database."));
 	}
 }
