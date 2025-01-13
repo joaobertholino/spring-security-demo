@@ -18,7 +18,7 @@ public class RegisterServiceImpl implements RegisterService {
 	public void register(RegisterDto registerDto) {
 		if (this.userAuthRepository.findByUsername(registerDto.username()) != null) throw new RuntimeException();
 
-		String passwordEncrypted = passwordEncoder.encode(registerDto.password());
+		String passwordEncrypted = this.passwordEncoder.encode(registerDto.password());
 		UserAuth userAuthToSave = new UserAuth(registerDto.username(), passwordEncrypted, registerDto.role());
 		this.userAuthRepository.save(userAuthToSave);
 	}

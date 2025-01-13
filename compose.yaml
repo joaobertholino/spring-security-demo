@@ -8,6 +8,7 @@ services:
       DATABASE_URL: jdbc:postgresql://postgres:5432/security-database
       DATABASE_USER: joaob
       DATABASE_PASSWORD: 12345
+      JWT_SECRET: spring-security-secret
     ports:
       - "8080:8080"
   postgres:

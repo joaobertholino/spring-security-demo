@@ -1,9 +1,9 @@
 package com.joaobertholino.springsecuritydemo.model;
 
 import com.joaobertholino.springsecuritydemo.enums.UserRole;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +25,14 @@ public class UserAuth implements UserDetails {
 
 	@Id
 	private String username;
+
+	@NotBlank(message = "The authenticated user's password cannot be null or empty.")
+	@Column(nullable = false)
 	private String password;
+
+	@NotNull(message = "Authenticated user rules cannot be null.")
+	@Enumerated(value = EnumType.ORDINAL)
+	@Column(nullable = false)
 	private UserRole role;
 
 	@Override
